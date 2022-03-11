@@ -1,0 +1,21 @@
+/*路由统一的动效*/
+.page-entry-active,
+.page-leave-active{
+    transition: opacity .5s;
+}
+
+.page-entry,
+.page-leave-active {
+    opacity: 0;
+}
+
+/* 单独的动效 */
+.test-entry-active,
+.test-leave-active {
+  transition: .5s ease all;
+}
+
+.test-entry,
+.test-leave-active {
+  margin-left: -1000px;
+}
