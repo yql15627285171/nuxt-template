@@ -4,8 +4,8 @@
 <script>
 export default {
   name: 'usee-detail',
-  validate({ params, query }) {
-    return typeof params.id === 'number'
-  },
+  // validate({ params, query }) {
+  //   return typeof params.id === 'number'
+  // },
 }
 </script>

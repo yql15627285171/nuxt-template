@@ -1,12 +1,15 @@
+import Vue from 'vue'
 // state
 export const state = () => ({
-  name: '',
+  id:'',
+  name: 'Xiaomi',
   age: '',
   token: ''
 })
 
 // getter
 export const getters = {
+  id: state => state.id,
   name: state => state.name,
   age: state => state.age,
   token: state => state.token,
@@ -15,6 +18,7 @@ export const getters = {
 // mutations
 export const mutations = {
   U_set_info(state, data) {
+    state.id = data.id
     state.name = data.name
     state.age = data.age
     state.token = data.token

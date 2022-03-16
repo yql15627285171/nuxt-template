@@ -1,0 +1,70 @@
+$margin: ml,mr,mt,mb,m,mv,mh;
+$padding: pl,pr,pt,pb,p,pv,ph;
+$color: '282832','0060ff', 'ff4d4f';
+$c: '#';
+@mixin font-size($size, $line-height:1) {
+  font-size: $size;
+  line-height: $line-height;
+}
+@for $i from 10 through 40 {
+  .fz-#{$i} {
+    @include font-size(#{$i}px);
+  }
+}
+@for $i from 10 through 100 {
+  .ms-#{$i * 2} {
+    width: #{$i * 2}px;
+	  height: #{$i * 2}px;
+  }
+}
+@each $item in $color  {
+  .clr-#{$item} {
+    color: #{$c + $item};
+  }
+}
+@each $item in $margin {
+  @for $i from 0 through 40 {
+    .#{$item}-#{$i} {
+      @if ($item == m) {
+        margin: #{$i}px;
+      } @else if ($item == mv) {
+        margin-top: #{$i}px;
+        margin-bottom: #{$i}px;
+      } @else if ($item == mh) {
+        margin-left: #{$i}px;
+        margin-right: #{$i}px;
+      } @else if ($item == ml) {
+        margin-left: #{$i}px;
+      } @else if ($item == mr) {
+        margin-right: #{$i}px;
+      } @else if ($item == mt) {
+        margin-top: #{$i}px;
+      } @else if ($item == mb) {
+        margin-bottom: #{$i}px;
+      } 
+    }
+  }
+}
+@each $item in $padding {
+  @for $i from 0 through 40 {
+    .#{$item}-#{$i} {
+      @if ($item == p) {
+        padding: #{$i}px;
+      } @else if ($item == pv) {
+        padding-top: #{$i}px;
+        padding-bottom: #{$i}px;
+      } @else if ($item == ph) {
+        padding-left: #{$i}px;
+        padding-right: #{$i}px;
+      } @else if ($item == pl) {
+        padding-left: #{$i}px;
+      } @else if ($item == pr) {
+        padding-right: #{$i}px;
+      } @else if ($item == pt) {
+        padding-top: #{$i}px;
+      } @else if ($item == pb) {
+        padding-bottom: #{$i}px;
+      } 
+    }
+  }
+}

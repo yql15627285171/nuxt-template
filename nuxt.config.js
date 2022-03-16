@@ -34,7 +34,7 @@ export default {
   },
 
   router: {
-    middleware: 'auth'
+    middleware: ['auth','i18n']
   },
   // loading: {
   //   color: '#399',
@@ -46,7 +46,8 @@ export default {
   css: [
     'element-ui/lib/theme-chalk/index.css',
     './assets/css/transition.css',
-    '~/assets/scss/globle.scss'
+    '~/assets/style/variables.scss',
+    '~/assets/style/index.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -61,7 +62,8 @@ export default {
       mode: 'client' // server
     },
 
-    '~/plugins/api' // 没有配置mode的时候，服务端和客户端都能触发
+    '~/plugins/api', // 没有配置mode的时候，服务端和客户端都能触发
+    '~/plugins/i18n', 
 
   ],
 
@@ -80,8 +82,11 @@ export default {
     '@nuxtjs/style-resources'
   ],
   // 全局引入样式
+  // styleResources 配置的资源路径不能使用 ~ 和 @,要使用绝对或者相对路径
   styleResources: {
-    // scss: ['./assets/scss/globle.scss']
+    scss: [
+      './assets/style/variables.scss'
+    ] 
   },
 
 
@@ -92,7 +97,7 @@ export default {
   },
   proxy: {
     '/hk-daojia-server': {
-      target: 'http://192.168.2.22:2510',
+      target: 'https://www.hkgallopexpress.com',
       changeOrigin: true,
       pathRewrite: {
         // "^/hk-daojia-server": 'http://192.168.2.22:2510/hk-daojia-server'
@@ -103,6 +108,7 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [/^element-ui/],
+    // vendor: ['vue-i18n'], // webpack vue-i18n.bundle.js
     extractCSS: true,
   }
 }
